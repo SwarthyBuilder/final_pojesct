@@ -43,7 +43,7 @@ def inject_logged_in():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home_page.html')
 
 #redirect to GitHub's OAuth page and confirm callback URL
 @app.route('/login')
