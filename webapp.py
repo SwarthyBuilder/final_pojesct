@@ -86,7 +86,7 @@ def renderPage1():
 @app.route('/Website')
 def renderPage2():
     if 'user_data' in session:
-        message="error"
+        message="logged in!"
     else:
         message="Please Log In!" 
     return render_template('home_page.html',message=message)
