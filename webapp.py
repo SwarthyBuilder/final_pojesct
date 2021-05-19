@@ -12,7 +12,12 @@ import os
 # Edited by S. Adams for Designing Software for the Web to add comments and remove flash messaging
 
 app = Flask(__name__)
-
+connection_string = os.environ["MONGO_CONNECTION_STRING"]
+db_name = os.environ["MONGO_DBNAME"]
+    
+client = pymongo.MongoClient(connection_string)
+db = client[db_name]
+collection = db['final'] #1. put the name of your collection in the quotes
 app.debug = False #Change this to False for production
 #os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' #Remove once done debugging
 
