@@ -83,9 +83,9 @@ def renderPage1():
         user_data_pprint = '';
     return render_template('page1.html',dump_user_data=user_data_pprint)
 
-@app.route('/page2')
+@app.route('/Website')
 def renderPage2():
-    return render_template('page2.html')
+    return render_template('home_page.html')
 
 #the tokengetter is automatically called to check who is logged in.
 @github.tokengetter
