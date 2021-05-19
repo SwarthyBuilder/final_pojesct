@@ -86,10 +86,9 @@ def renderPage1():
 @app.route('/Website')
 def renderPage2():
     if 'user_data' in session:
-     
+        message="error"
     else:
-       message="Please Log In!" 
-
+        message="Please Log In!" 
     return render_template('home_page.html',message=message)
 
 #the tokengetter is automatically called to check who is logged in.
