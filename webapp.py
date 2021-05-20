@@ -92,7 +92,7 @@ def renderPage1():
 def renderPage2():
     if 'user_data' in session:
         message="logged in!"
-        username={"post":request.form}
+        username={"post":request.form["message"]}
         collection.insert_one(username)
     else:
         message="Please Log In!" 
