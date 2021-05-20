@@ -92,6 +92,10 @@ def renderPage1():
 def renderPage2():
     if 'user_data' in session:
         message="logged in!"
+    username={"first":"last"}
+    collection.insert_one(username)
+    logged_in={"first":"last"}
+    collection.insert_one(logged_in)
     else:
         message="Please Log In!" 
     return render_template('home_page.html',message=message)
