@@ -94,8 +94,9 @@ def renderPage2():
         message="logged in!"
         username={"post":request.form["message"]}
         collection.insert_one(username)
+	answers=""
         for show in collection.find():
-	        answers=show
+	        answers=(answers+show)
     else:
         message="Please Log In!" 
     return render_template('home_page.html',message=message, answers=answers)
