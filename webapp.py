@@ -88,7 +88,7 @@ def renderPage1():
         user_data_pprint = '';
     return render_template('page1.html',dump_user_data=user_data_pprint)
 
-@app.route('/Website')
+@app.route('/Website', methods=['GET', 'POST'])
 def renderPage2():
     if 'user_data' in session:
         message="logged in!"
