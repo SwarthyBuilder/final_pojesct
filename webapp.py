@@ -94,7 +94,7 @@ def renderPage2():
         message="logged in!"
         username={"post":request.form["message"]}
         collection.insert_one(username)
-	answers=""
+        answers=""
         for show in collection.find():
 	        answers=(answers+show)
     else:
