@@ -96,7 +96,7 @@ def renderPage2():
         collection.insert_one(username)
         answers=""
         for show in collection.find():
-	    answers=(answers+Markup("<p>anonymous</p>")+Markup("<p>")+show["post"]+Markup("</p>"))
+	        answers=(answers+Markup("<p>anonymous</p>")+Markup("<p>")+show["post"]+Markup("</p>"))
         return render_template('home_page.html',message=message, answers=answers)
     else:
         message="Please Log In!" 
