@@ -97,7 +97,7 @@ def renderPage2():
         answers=""
         for show in collection.find():
 	        answers=(answers+show["post"])
-    return render_template('home_page.html',message=message, answers=answers)
+        return render_template('home_page.html',message=message, answers=answers)
     else:
         message="Please Log In!" 
     return render_template('home_page.html',message=message)
