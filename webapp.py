@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, session, request, jsonify
+from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 #from flask_oauthlib.contrib.apps import github #import to make requests to GitHub's OAuth
 from flask import render_template
@@ -96,7 +96,7 @@ def renderPage2():
         collection.insert_one(username)
         answers=""
         for show in collection.find():
-	        answers=(answers+show["post"])
+	    answers=(answers+Markup("<p>anonymous</p>")+Markup("<p>")+show["post"]+Markup("</p>"))
         return render_template('home_page.html',message=message, answers=answers)
     else:
         message="Please Log In!" 
