@@ -88,16 +88,16 @@ def renderPage1():
         user_data_pprint = '';
     return render_template('page1.html',dump_user_data=user_data_pprint)
 
-@app.route('/Website', methods=['GET', 'POST'])
+@app.route('/Website', methods=['GET', 'POST'])#get AND post are requests for the server
 def renderPage2():
-    if 'user_data' in session:
+    if 'user_data' in session:#checking if their logged in
         message="logged in!"
-        username={"post":request.form["message"]}
-        collection.insert_one(username)
+        username={"post":request.form["message"]}#retrieving the information
+        collection.insert_one(username)#stores data that they wrote
         answers=""
-        for show in collection.find():
-	        answers=(answers+Markup("<p>anonymous</p>")+Markup("<p>")+show["post"]+Markup("</p>"))
-        return render_template('home_page.html',message=message, answers=answers)
+        for show in collection.find():#retrieves the data from data base
+	        answers=(answers+Markup("<p>anonymous</p>")+Markup("<p>")+show["post"]+Markup("</p>"))#shows an annonymous message written by someone
+        return render_template('home_page.html',message=message, answers=answers)#grabs python variable and puts it into html
     else:
         message="Please Log In!" 
     return render_template('home_page.html',message=message)
